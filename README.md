@@ -1,7 +1,8 @@
-# 🍄Mushroom Genus Classifier
+# Mushroom Genus Classifier
 Welcome to "Guess the Shroom!", a fun and smart web application that classifies mushrooms into one of 9 common genera based on their images! 🧠📸
 
 <div align="center"> <img src="https://em-content.zobj.net/source/microsoft-teams/363/mushroom_1f344.png" width="100"/> </div>
+
 ### Project Overview
 This project uses EfficientNetB0, a powerful image classification model, to identify the genus of a mushroom from a photo. It also includes a Flask-powered web app with a cute and interactive interface to make the classification experience more fun! 💖
 
