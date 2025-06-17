@@ -99,20 +99,49 @@ model = Sequential([
 ])
 ```
 
-- Conv2D(32, (3,3)): Layer konvolusi pertama, menghasilkan 32 filter berukuran 3x3.
-- MaxPooling2D(2,2): Mengurangi ukuran citra sebanyak setengahnya.
-- Conv2D(64, (3,3)): Layer konvolusi kedua, menambah kompleksitas fitur.
-- Flatten(): Mengubah hasil konvolusi menjadi array 1 dimensi.
-- Dense(128): Layer fully-connected dengan 128 neuron.
-- Dropout(0.3): Mengurangi overfitting dengan menonaktifkan 30% neuron saat training.
-- Dense(..., activation='softmax'): Layer output dengan jumlah neuron sesuai jumlah kelas, menghasilkan probabilitas untuk tiap kelas.
+1. `Conv2D(32, (3,3))`
+- Layer konvolusi pertama, menghasilkan 32 filter berukuran 3x3.
+- Layer ini melakukan proses konvolusi, yaitu "menyapu" gambar input menggunakan 32 filter (semacam jendela kecil) berukuran 3x3 piksel.
+- Setiap filter mendeteksi pola tertentu pada gambar, seperti garis tepi, tekstur, atau warna.
+- Output-nya adalah 32 feature maps, yaitu hasil deteksi fitur dari gambar.
+  
+2. `MaxPooling2D(2,2)`
+- Mengurangi ukuran citra sebanyak setengahnya.
+- Fungsi utamanya adalah mengecilkan ukuran data (disebut downsampling) sambil mempertahankan fitur paling penting.
+- Ukuran 2x2 artinya dari setiap blok 2x2 piksel, hanya diambil nilai terbesar.
+- MaxPooling mengurangi jumlah data, mempercepat proses training, dan menghindari overfitting.
+
+3. `Conv2D(64, (3,3))`
+- Layer konvolusi kedua, menambah kompleksitas fitur.
+- Layer konvolusi kedua, tapi kali ini ada 64 filter, yang artinya model mencari fitur yang lebih kompleks dari output sebelumnya.
+- Karena inputnya sudah berupa feature maps dari hasil layer sebelumnya, filter di sini mungkin mendeteksi pola gabungan, seperti bentuk kurva, tekstur kompleks, dll.
+
+4. `Flatten()`
+- Mengubah hasil dari layer konvolusi dan pooling (berbentuk 2D seperti gambar) menjadi 1D array (seperti daftar angka).
+- Format ini dibutuhkan sebelum masuk ke layer dense (fully connected).
+
+5. `Dense(128)`
+- Ini adalah fully connected layer, artinya setiap neuron di layer ini terhubung ke semua output sebelumnya.
+- Layer ini mencoba menggabungkan dan memahami semua fitur yang sudah dideteksi sebelumnya, dan membentuk pola untuk mengenali kelas tertentu.
+- Memiliki 128 neuron, artinya ada 128 "pemroses mini" yang mempelajari kombinasi fitur.
+  
+6. `Dropout(0.3)`
+- Selama training, Dropout akan mematikan (nonaktifkan) 30% neuron secara acak di layer sebelumnya.
+- Ini mencegah model terlalu bergantung pada neuron tertentu dan membuat model lebih umum (generalize) ke data baru.
+- Sangat penting untuk menghindari overfitting, yaitu ketika model hanya hafal data training, tapi buruk dalam data baru.
+  
+7. `Dense(..., activation='softmax')`
+- Ini adalah output layer.
+- Jumlah neuronnya = jumlah kelas 
+- Menggunakan softmax, yang menghasilkan probabilitas untuk setiap kelas, dan jumlahnya dijamin 100% (semua probabilitas dijumlah = 1).
+- Model akan memilih kelas dengan probabilitas tertinggi sebagai hasil prediksi.
 
 #### 6. Kompilasi model
 ```
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 ```
-- Menggunakan Adam optimizer untuk pembaruan bobot yang efisien.
-- `categorical_crossentropy` digunakan karena ini adalah kasus klasifikasi multi-kelas.
+- Adam (Adaptive Moment Estimation) adalah salah satu algoritma optimisasi yang paling populer dan efektif untuk deep learning. Fungsinya: mengatur dan memperbarui bobot model berdasarkan seberapa besar kesalahan (error) yang terjadi.
+- `loss = categorical_crossentropy` untuk mengukur seberapa besar kesalahan model saat memprediksi.
 - `metrics=['accuracy']:` Untuk memonitor akurasi saat training.
 
 #### 7. Training model
