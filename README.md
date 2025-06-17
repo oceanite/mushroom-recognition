@@ -1,5 +1,5 @@
 # Mushroom Genus Classifier
-Welcome to "Guess the Shroom!", a fun and smart web application that classifies mushrooms into one of 9 common genera based on their images! 
+Welcome to "Shroomie Showdown!", a fun and smart web application that classifies mushrooms into one of 9 common genera based on their images! 
 
 <div align="center"> 
 
