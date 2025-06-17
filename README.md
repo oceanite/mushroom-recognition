@@ -1,10 +1,7 @@
-# Mushroom Genus Classifier Using CNN
-Welcome to "Shroomie Showdown!", a fun and smart web application that classifies mushrooms into one of 9 common genera based on their images! 
-
+<h1 align="center">Mushroom Genus Classifier Using CNN</h1>
+<p align="center">Welcome to "Shroomie Showdown!", a fun and smart web application that classifies mushrooms into one of 9 common genera based on their images! </p>
 <div align="center"> 
-
-<img src="https://github.com/user-attachments/assets/6bc744a0-640e-4665-a79b-2d10ef7193ac" alt="Alt Text" width="420" height="400">
-
+ <img src="https://github.com/user-attachments/assets/6bc744a0-640e-4665-a79b-2d10ef7193ac" alt="Alt Text" width="420" height="400">
 </div>
 
 ## Project Overview
