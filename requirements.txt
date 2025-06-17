@@ -1,0 +1,7 @@
+flask
+gunicorn
+fastapi
+uvicorn
+tensorflow==2.14.0
+numpy
+pillow
