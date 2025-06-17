@@ -6,7 +6,7 @@ from PIL import Image
 import os
 
 app = Flask(__name__)
-model = load_model('mushroom_cnn.h5')  # nama file model
+model = load_model('shroom_cnn.h5')  # nama file model
 
 UPLOAD_FOLDER = 'static/uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
