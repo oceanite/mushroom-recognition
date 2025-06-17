@@ -3,7 +3,7 @@ Welcome to "Guess the Shroom!", a fun and smart web application that classifies 
 
 <div align="center"> 
 
-![image](https://github.com/user-attachments/assets/6bc744a0-640e-4665-a79b-2d10ef7193ac)  | width=100
+![image](https://github.com/user-attachments/assets/6bc744a0-640e-4665-a79b-2d10ef7193ac) | width=100
 
 </div>
 
@@ -120,6 +120,9 @@ model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accur
 model.fit(train_data, epochs=10, validation_data=val_data)
 ```
 Melatih model selama 10 epoch menggunakan data latih dan validasi.
+
+![image](https://github.com/user-attachments/assets/379e4879-fe5a-4bfe-baae-762002ad5460)
+
 
 #### 8. Menyimpan model dan label kelas
 ```
