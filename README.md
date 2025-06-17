@@ -1,7 +1,7 @@
 # Mushroom Genus Classifier
 Welcome to "Guess the Shroom!", a fun and smart web application that classifies mushrooms into one of 9 common genera based on their images! 
 
-<div align="center"> <img src="https://em-content.zobj.net/source/microsoft-teams/363/mushroom_1f344.png" width="100"/> </div>
+<div align="center"> ![image](https://github.com/user-attachments/assets/6bc744a0-640e-4665-a79b-2d10ef7193ac) </div>
 
 ## Project Overview
 This project uses CNN, a powerful image classification model, to identify the genus of a mushroom from a photo. It also includes a Flask-powered web app with a cute and interactive interface to make the classification experience more fun! 
@@ -13,8 +13,8 @@ This project uses CNN, a powerful image classification model, to identify the ge
 5. Frontend	HTML + CSS
 
 ## CNN Implementation
-## Konsep umum
 
+### Konsep umum
 Convolutional Neural Network (CNN) adalah salah satu jenis algoritma deep learning yang paling efektif untuk pengenalan gambar. CNN bekerja dengan cara mengekstrak fitur dari gambar melalui operasi konvolusi, lalu mengklasifikasikan gambar berdasarkan fitur-fitur tersebut.
 
 Struktur umum CNN terdiri dari:
@@ -81,7 +81,7 @@ val_data = datagen.flow_from_directory(
 - Ukuran gambar dikonversi menjadi 64x64 piksel.
 - `class_mode='categorical'` digunakan untuk klasifikasi multi-kelas.
 
-#### Membangun arsitektur CNN
+#### 5. Membangun arsitektur CNN
 ```
 model = Sequential([
     Conv2D(32, (3,3), activation='relu', input_shape=(64,64,3)),
@@ -103,7 +103,7 @@ model = Sequential([
 - Dropout(0.3): Mengurangi overfitting dengan menonaktifkan 30% neuron saat training.
 - Dense(..., activation='softmax'): Layer output dengan jumlah neuron sesuai jumlah kelas, menghasilkan probabilitas untuk tiap kelas.
 
-#### Kompilasi model
+#### 6. Kompilasi model
 ```
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 ```
@@ -111,13 +111,13 @@ model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accur
 - `categorical_crossentropy` digunakan karena ini adalah kasus klasifikasi multi-kelas.
 - `metrics=['accuracy']:` Untuk memonitor akurasi saat training.
 
-#### Training model
+#### 7. Training model
 ```
 model.fit(train_data, epochs=10, validation_data=val_data)
 ```
 Melatih model selama 10 epoch menggunakan data latih dan validasi.
 
-#### Menyimpan model dan label kelas
+#### 8. Menyimpan model dan label kelas
 ```
 model.save('mushroom_cnn.h5')
 
@@ -127,8 +127,9 @@ with open('class_labels.txt', 'w') as f:
 ```
 - Model yang telah dilatih disimpan sebagai file .h5 agar dapat digunakan untuk prediksi di masa depan.
 - Label kelas disimpan ke dalam file teks class_labels.txt.
-  
-### How to Run Locally
+
+
+## How to Run Locally
 Clone the repo:
 ```
 git clone https://github.com/yourusername/mushroom-classifier.git
@@ -138,8 +139,6 @@ cd mushroom-classifier
 Install dependencies:
 ```
 pip install -r requirements.txt
-Train the model (optional):
-Use the script to train EfficientNetB0 with your dataset from Kaggle.
 ```
 
 Run the web app:
@@ -148,7 +147,18 @@ Run the web app:
 Open in browser:
 Go to `http://127.0.0.1:5000` and try uploading your mushroom image!
 
-### Dataset
+## Documentation
+1. Akses melalui localhost
+
+![image](https://github.com/user-attachments/assets/30244dc0-5b3e-4a83-ab62-8dd89f2f4505)
+
+2. Upload gambar jamur lalu klik tombol identifikasi
+   
+![image](https://github.com/user-attachments/assets/7f7a0e22-9cee-4860-81a7-db471c25de56)
+
+3. Program akan menampilkan prediksi genus jamur yang paling mendekati
+
+## Dataset
 Downloaded using KaggleHub from:
 maysee/mushrooms-classification-common-genuss-images
 
