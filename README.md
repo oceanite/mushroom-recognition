@@ -1,4 +1,4 @@
-# Mushroom Genus Classifier
+# Mushroom Genus Classifier Using CNN
 Welcome to "Shroomie Showdown!", a fun and smart web application that classifies mushrooms into one of 9 common genera based on their images! 
 
 <div align="center"> 
