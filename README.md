@@ -3,7 +3,7 @@ Welcome to "Guess the Shroom!", a fun and smart web application that classifies 
 
 <div align="center"> 
 
-![](https://github.com/user-attachments/assets/6bc744a0-640e-4665-a79b-2d10ef7193ac=250x250)
+<img src="https://github.com/user-attachments/assets/6bc744a0-640e-4665-a79b-2d10ef7193ac" alt="Alt Text" width="400" height="400">
 
 </div>
 
